@@ -96,6 +96,13 @@ Open **`http://localhost:8787`** in your browser.
 
 ---
 
+## Transparent AI Co-Engineering Disclosure
+
+- **Development Method:** This project was scoped, directed, reviewed, and submitted by an individual developer using the **Google Antigravity** AI coding agent, which implemented the TypeScript/React/Express codebase, AG Grid integration, `@paypal/agent-toolkit` wiring, automated tests, and demo video rendering under explicit human constraints (zero external API billing, zero PII, original MIT-compatible code, and verified sandbox tests).
+- **Runtime Honest Execution:** When no PayPal Sandbox credentials are configured, transactions execute in `LOCAL_SANDBOX_REPLAY` mode and are visibly labeled as replay outputs in both the UI and Wire Log—never disguised as live PayPal responses.
+
+---
+
 ## License
 
 Released under the [MIT License](./LICENSE).
