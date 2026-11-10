@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "PayFlow Agentic Ledger API",
+    "description": "Postman collection for PayFlow Agentic Ledger (@paypal/agent-toolkit + AG Grid FilterModel + PayPal Sandbox REST APIs).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8787" }
+  ],
+  "item": [
+    {
+      "name": "Health & Gateway Status",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "List 47 Official PayPal Agent Toolkit Tools",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/paypal/tools"
+      }
+    },
+    {
+      "name": "Get Ledger State & Wire Log",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/ledger"
+      }
+    },
+    {
+      "name": "AI Ingest Unstructured Email/Receipt",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"From: Maya Kapoor <maya.kapoor@sandbox.example.com> - Completed i18n accessibility audit for $420 USD payout.\"\n}"
+        },
+        "url": "{{baseUrl}}/api/ai/ingest"
+      }
+    },
+    {
+      "name": "Compile Natural Language to AG Grid FilterModel",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"high risk blocked payouts over 500\"\n}"
+        },
+        "url": "{{baseUrl}}/api/ai/compile-filter"
+      }
+    },
+    {
+      "name": "Update Autonomous Spend Cap Policy",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"maxAutoApproveUsd\": 1000\n}"
+        },
+        "url": "{{baseUrl}}/api/ledger/policy"
+      }
+    },
+    {
+      "name": "Execute Single PayPal Toolkit Action",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"forceOverride\": false\n}"
+        },
+        "url": "{{baseUrl}}/api/ledger/row-002/execute"
+      }
+    },
+    {
+      "name": "Execute Batch Payout",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"itemIds\": [\"row-001\", \"row-002\"],\n  \"includeOverride\": false\n}"
+        },
+        "url": "{{baseUrl}}/api/ledger/batch-payout"
+      }
+    }
+  ]
+}
