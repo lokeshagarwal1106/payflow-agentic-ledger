@@ -6,13 +6,13 @@
 
 ## Why PayFlow Agentic Ledger?
 
-Freelancers, indie SaaS founders, and lean finance operators receive contractor payout requests, B2B invoices, customer refunds, and PayPal disputes across messy email/Slack threads. Automating disbursements with naive AI agents is risky—a single duplicate invoice or urgent wire message can drain funds before anyone notices.
+Freelancers, indie SaaS founders, and lean finance operators receive contractor payout requests, B2B invoices, customer refunds, and PayPal disputes across messy email and chat threads. Automating disbursements with naive AI agents is risky—a single duplicate invoice or urgent wire message can drain funds before anyone notices.
 
 **PayFlow Agentic Ledger** puts a deterministic, explainable policy firewall and an interactive **AG Grid v36** financial control plane between unstructured requests and **PayPal Sandbox execution**:
 
 1. **Zero-Billing Unstructured AI Ingest (`POST /api/ai/ingest`)**
    - Parses raw contractor emails, invoices, checkout requests, refunds, and PayPal disputes into structured ledger items at **$0 / ₹0 API cost**.
-   - Automatically detects whether Chrome on-device Prompt AI is available and never requires paid OpenAI/Anthropic billing.
+   - Automatically detects whether browser on-device Prompt AI is available and never requires paid external LLM API billing.
 2. **5-Factor Anomaly, Fraud & Spend-Cap Firewall (`src/shared/riskEngine.ts`)**
    - **`DUPLICATE_PAYEE_AMOUNT`**: Detects repeat billing for the same counterparty & amount within active ledger history (`+45` risk pts).
    - **`SPLIT_STRUCTURING`**: Flags concurrent requests split under the autonomous spend cap whose cumulative sum exceeds the limit (`+35` risk pts).

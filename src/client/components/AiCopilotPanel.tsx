@@ -87,7 +87,7 @@ export function AiCopilotPanel({
             className="textarea-input"
             value={ingestDraft}
             onChange={(e) => setIngestDraft(e.target.value)}
-            placeholder="Paste messy contractor emails, invoices, or Slack payment requests..."
+            placeholder="Paste messy contractor emails, invoices, or chat payment requests..."
           />
           <button
             type="button"
